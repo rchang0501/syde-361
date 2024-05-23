@@ -38,10 +38,10 @@ int main() {
     vector<pair<int, int>> pump_water = {{10, 0}};
     vector<pair<int, int>> change_dir_of_water = {{8, 5}, {6, 10}, {7, 15}, {6, 10}};
     vector<pair<int, int>> change_flow_rate = {{9, 10}, {7, 5}, {8, 12}, {8, 20}};
-    vector<pair<int, int>> spin_turbine = {{10, 15}};
+    vector<pair<int, int>> spin_turbine = {{8, 5}, {9, 8}, {9, 10}, {7, 6}};
     vector<pair<int, int>> discharge_water = {{8, 5}, {7, 15}, {6, 10}, {9, 5}};
     vector<pair<int, int>> motor = {{10, 0}};
-    vector<pair<int, int>> ac_to_dc = {{10, 0}};
+    vector<pair<int, int>> ac_to_dc = {{9, 10}, {6, 5}, {10, 15}, {8, 12}};
     vector<pair<int, int>> store_electricity = {{7, 15}, {9, 25}, {10, 25}, {8, 20}};
     vector<pair<int, int>> usb = {{10, 0}};
 
@@ -60,10 +60,10 @@ int main() {
         {"water pump", "", "", ""},
         {"PVC elbow joint", "Adjustable hose nozzle", "Flexible hose", "Rubber tubing with clamps"},
         {"Ball valve", "Adjustable clamp", "Flow restrictor", "Inline water flow regulator"},
-        {"3D printed turbine", "", "", ""},
+        {"Pelton Wheel Turbine", "Francis Turbine", "Kaplan Turbine", "Crossflow Turbine"},
         {"PVC pipe outlet", "Flexible discharge hose", "Drainage spout", "Gravity-fed return system"},
         {"motor", "", "", ""},
-        {"full wave rectifier", "", "", ""},
+        {"Full-Wave Rectifier Circuit", "Half-Wave Rectifier Circuit", "Bridge Rectifier Circuit", "Capacitor-Input Filter Circuit"},
         {"Rechargeable AA batteries", "Supercapacitor", "Lithium-ion battery", "18650 battery"},
         {"USB", "", "", ""}
     };
