@@ -13,18 +13,19 @@ struct Solution {
 };
 
 const auto cmp = [](const Solution& a, const Solution& b) {
+    if (a.e == b.e) return a.c >= b.c;
     return a.e < b.e;
 };
 
 void combinations(int i, Solution curr, priority_queue<Solution, vector<Solution>, decltype(cmp)>& pq, vector<vector<pair<int, int>>>& input) {
     // out of bounds
-    if(i >= input.size()) {
+    if (i >= input.size()) {
         pq.push(curr);
         return;
     }
 
-    for(int j = 0 ; j < input[i].size() ; j++) {
-        pair<int,int> option = input[i][j];
+    for (int j = 0; j < input[i].size(); j++) {
+        pair<int, int> option = input[i][j];
         Solution next = curr;
         next.e += option.first;
         next.c += option.second;
@@ -65,22 +66,33 @@ int main() {
         {"motor", "", "", ""},
         {"Full-Wave Rectifier Circuit", "Half-Wave Rectifier Circuit", "Bridge Rectifier Circuit", "Capacitor-Input Filter Circuit"},
         {"Rechargeable AA batteries", "Supercapacitor", "Lithium-ion battery", "18650 battery"},
-        {"USB", "", "", ""}
-    };
+        {"USB", "", "", ""}};
 
     priority_queue<Solution, vector<Solution>, decltype(cmp)> pq(cmp);
 
     Solution curr = Solution(input.size());
     combinations(0, curr, pq, input);
 
-    for(int i = 0 ; i < 10 ; i++) {
-        Solution curr = pq.top(); pq.pop();
-        cout << curr.e << ", " << curr.c << ", [";
-        for(int r = 0 ; r < curr.items.size() ; r++) {
-            int c = curr.items[r];
-            cout << dict[r][c] << ", "; 
+    // Create an output file stream object
+    ofstream outFile("solutions.txt");
+    if (outFile.is_open()) {
+        while (!pq.empty()) {
+            Solution curr = pq.top();
+            pq.pop();
+
+            string outstr = "";
+            outstr += to_string(curr.e) + ", " + to_string(curr.c) + ", [";
+
+            for (int r = 0; r < curr.items.size(); r++) {
+                int c = curr.items[r];
+                outstr += dict[r][c] + ", ";
+            }
+            outstr += "]\n\n";
+
+            outFile << outstr << endl;
         }
-        cout << "]\n\n";
+    } else {
+        cerr << "Error opening file." << std::endl;
     }
 
     return 0;
