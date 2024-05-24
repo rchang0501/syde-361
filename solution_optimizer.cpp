@@ -73,7 +73,7 @@ int main() {
     Solution curr = Solution(input.size());
     combinations(0, curr, pq, input);
 
-    // Create an output file stream object
+    // write solutions to text file
     ofstream outFile("solutions.txt");
     if (outFile.is_open()) {
         while (!pq.empty()) {
@@ -92,12 +92,12 @@ int main() {
             outFile << outstr << endl;
         }
     } else {
-        cerr << "Error opening file." << std::endl;
+        cerr << "Error opening file." << endl;
     }
 
     return 0;
 }
 
 /*
-86, 60, [water pump, PVC elbow joint, Ball valve, 3D printed turbine, Gravity-fed return system, motor, full wave rectifier, Lithium-ion battery, USB, ]
+85, 68, [water pump, PVC elbow joint, Ball valve, Francis Turbine, Gravity-fed return system, motor, Bridge Rectifier Circuit, Lithium-ion battery, USB, ]
 */
