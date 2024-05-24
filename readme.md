@@ -4,7 +4,7 @@ This repo contains code for the SYDE 361 Needs Analysis and Prototyping Course.
 
 ## Solution Optimizer
 ### Prompt
-I am a high school student building an electric generator that turns flowing water into electricity. I have performed a functional decomposition of the system. I now need to find solutions on how to implement each function of the system.
+I am a school student building an electric generator that turns flowing water into electricity. I have performed a functional decomposition of the system. I now need to find solutions on how to implement each function of the system.
 
 
 Given the list of provided functions, generate a list of 4 solutions to accomplish each.
